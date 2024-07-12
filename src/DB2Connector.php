@@ -34,9 +34,9 @@ class DB2Connector extends Connector implements ConnectorInterface
             // Use the IBM driver
             $dsnParts = [
                 'ibm:DRIVER='.$config['driverName'],
-                'HOST='.$config['host'],
-                'PORT='.$config['port'],
                 'DATABASE='.$config['database'],
+                'HOSTNAME='.$config['host'],
+                'PORT='.$config['port'],
                 $config['username'],
                 $config['password'],
             ];
