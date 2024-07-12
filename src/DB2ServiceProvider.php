@@ -1,6 +1,6 @@
 <?php
 
-namespace BWICompanies\DB2Driver;
+namespace djolecodes\DB2Driver;
 
 use Illuminate\Database\Connection;
 use Illuminate\Support\ServiceProvider;

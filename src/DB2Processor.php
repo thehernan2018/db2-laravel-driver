@@ -1,8 +1,7 @@
 <?php
 
-namespace BWICompanies\DB2Driver;
+namespace djolecodes\DB2Driver;
 
-use BWICompanies\DB2Driver\DB2QueryGrammar;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\Processors\Processor;
 
@@ -21,7 +20,7 @@ class DB2Processor extends Processor
 
         $finalSql = sprintf($sqlStr, $sequenceStr, $sql);
         $results = $query->getConnection()
-                         ->select($finalSql, $values);
+            ->select($finalSql, $values);
 
         if (is_array($sequence)) {
             return array_values((array) $results[0]);

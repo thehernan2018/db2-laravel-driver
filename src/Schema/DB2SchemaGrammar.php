@@ -1,6 +1,6 @@
 <?php
 
-namespace BWICompanies\DB2Driver\Schema;
+namespace djolecodes\DB2Driver\Schema;
 
 use Illuminate\Database\Connection;
 use Illuminate\Database\Query\Expression;
@@ -76,9 +76,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a create table command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
-     * @param  \Illuminate\Database\Connection  $connection
      * @return string
      */
     public function compileCreate(Blueprint $blueprint, Fluent $command, Connection $connection)
@@ -98,9 +95,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a label command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
-     * @param  \Illuminate\Database\Connection  $connection
      * @return string
      */
     public function compileLabel(Blueprint $blueprint, Fluent $command, Connection $connection)
@@ -111,7 +105,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile the blueprint's column definitions.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @return array
      */
     protected function getColumns(Blueprint $blueprint)
@@ -136,8 +129,6 @@ class DB2SchemaGrammar extends Grammar
      * Add the column modifiers to the definition.
      *
      * @param  string  $sql
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function addPreModifiers($sql, Blueprint $blueprint, Fluent $column)
@@ -154,8 +145,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a create table command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileAdd(Blueprint $blueprint, Fluent $command)
@@ -174,8 +163,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a primary key command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compilePrimary(Blueprint $blueprint, Fluent $command)
@@ -196,8 +183,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a foreign key command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileForeign(Blueprint $blueprint, Fluent $command)
@@ -238,8 +223,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a unique key command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileUnique(Blueprint $blueprint, Fluent $command)
@@ -260,8 +243,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a plain index key command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileIndex(Blueprint $blueprint, Fluent $command)
@@ -291,8 +272,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a drop table command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileDrop(Blueprint $blueprint, Fluent $command)
@@ -303,8 +282,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a drop table (if exists) command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileDropIfExists(Blueprint $blueprint, Fluent $command)
@@ -315,8 +292,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a drop column command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileDropColumn(Blueprint $blueprint, Fluent $command)
@@ -330,8 +305,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a drop primary key command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileDropPrimary(Blueprint $blueprint, Fluent $command)
@@ -342,8 +315,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a drop unique key command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileDropUnique(Blueprint $blueprint, Fluent $command)
@@ -363,8 +334,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a drop index command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileDropIndex(Blueprint $blueprint, Fluent $command)
@@ -384,8 +353,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a drop foreign key command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileDropForeign(Blueprint $blueprint, Fluent $command)
@@ -405,8 +372,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a rename table command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileRename(Blueprint $blueprint, Fluent $command)
@@ -419,7 +384,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a char type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeChar(Fluent $column)
@@ -430,7 +394,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a string type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeString(Fluent $column)
@@ -441,7 +404,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a text type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeText(Fluent $column)
@@ -452,7 +414,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a medium text type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeMediumText(Fluent $column)
@@ -465,7 +426,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a long text type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeLongText(Fluent $column)
@@ -478,7 +438,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a big integer type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeBigInteger(Fluent $column)
@@ -489,7 +448,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a integer type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeInteger(Fluent $column)
@@ -500,7 +458,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a small integer type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeSmallInteger(Fluent $column)
@@ -511,7 +468,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a numeric type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeNumeric(Fluent $column)
@@ -522,7 +478,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a float type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeFloat(Fluent $column)
@@ -533,7 +488,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a double type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeDouble(Fluent $column)
@@ -548,7 +502,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a decimal type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeDecimal(Fluent $column)
@@ -559,7 +512,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a boolean type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeBoolean(Fluent $column)
@@ -572,7 +524,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for an enum type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeEnum(Fluent $column)
@@ -583,7 +534,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a date type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeDate(Fluent $column)
@@ -598,7 +548,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a date-time type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeDateTime(Fluent $column)
@@ -609,7 +558,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a time type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeTime(Fluent $column)
@@ -624,7 +572,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a timestamp type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeTimestamp(Fluent $column)
@@ -639,7 +586,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a binary type.
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeBinary(Fluent $column)
@@ -650,7 +596,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Create the column definition for a UUID type
      *
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string
      */
     protected function typeUuid(Fluent $column)
@@ -658,13 +603,9 @@ class DB2SchemaGrammar extends Grammar
         return 'char(36)';
     }
 
-
-
     /**
      * Get the SQL for a nullable column modifier.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string|null
      */
     protected function modifyNullable(Blueprint $blueprint, Fluent $column)
@@ -675,8 +616,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Get the SQL for a default column modifier.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string|null
      */
     protected function modifyDefault(Blueprint $blueprint, Fluent $column)
@@ -691,8 +630,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Get the SQL for an auto-increment column modifier.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string|null
      */
     protected function modifyIncrement(Blueprint $blueprint, Fluent $column)
@@ -707,8 +644,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Get the SQL for an "before" column modifier.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string|null
      */
     protected function modifyBefore(Blueprint $blueprint, Fluent $column)
@@ -723,8 +658,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Get the SQL for an "for column" column modifier.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string|null
      */
     protected function modifyForColumn(Blueprint $blueprint, Fluent $column)
@@ -739,8 +672,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Get the SQL for a "generated" column modifier.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string|null
      */
     protected function modifyGenerated(Blueprint $blueprint, Fluent $column)
@@ -755,8 +686,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Get the SQL for a "startWith" column modifier.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string|null
      */
     protected function modifyStartWith(Blueprint $blueprint, Fluent $column)
@@ -771,8 +700,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Get the SQL for an "implicitly hidden" column modifier.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $column
      * @return string|null
      */
     protected function modifyImplicitlyHidden(Blueprint $blueprint, Fluent $column)
@@ -802,8 +729,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile a executeCommand command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     private function compileExecuteCommand(Blueprint $blueprint, Fluent $command)
@@ -814,9 +739,6 @@ class DB2SchemaGrammar extends Grammar
     /**
      * Compile an addReplyListEntry command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
-     * @param  \Illuminate\Database\Connection  $connection
      * @return string
      */
     public function compileAddReplyListEntry(Blueprint $blueprint, Fluent $command, Connection $connection)
@@ -847,8 +769,6 @@ EOT;
     /**
      * Compile a removeReplyListEntry command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileRemoveReplyListEntry(Blueprint $blueprint, Fluent $command)
@@ -862,8 +782,6 @@ EOT;
     /**
      * Compile a changeJob command.
      *
-     * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Illuminate\Support\Fluent  $command
      * @return string
      */
     public function compileChangeJob(Blueprint $blueprint, Fluent $command)

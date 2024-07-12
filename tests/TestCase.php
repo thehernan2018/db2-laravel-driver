@@ -1,8 +1,7 @@
 <?php
 
-namespace BWICompanies\DB2Driver\Tests;
+namespace djolecodes\DB2Driver\Tests;
 
-use BWICompanies\DB2Driver\DB2DriverServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -20,7 +19,7 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            DB2DriverServiceProvider::class,
+            \djolecodes\DB2Driver\DB2DriverServiceProvider::class,
         ];
     }
 

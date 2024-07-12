@@ -1,6 +1,6 @@
 <?php
 
-namespace BWICompanies\DB2Driver;
+namespace djolecodes\DB2Driver;
 
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\Grammars\Grammar;
@@ -39,7 +39,6 @@ class DB2QueryGrammar extends Grammar
     /**
      * Compile the "limit" portions of the query.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
      * @param  int  $limit
      * @return string
      */
@@ -55,7 +54,6 @@ class DB2QueryGrammar extends Grammar
     /**
      * Compile a select query into SQL.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
      */
     public function compileSelect(Builder $query)
@@ -83,7 +81,6 @@ class DB2QueryGrammar extends Grammar
     /**
      * Create a full ANSI offset clause for the query.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $components
      * @return string
      */
@@ -139,7 +136,6 @@ class DB2QueryGrammar extends Grammar
      * Compile the over statement for a table expression.
      *
      * @param  string  $orderings
-     * @param    $columns
      * @return string
      */
     protected function compileOver($orderings, $columns)
@@ -148,7 +144,6 @@ class DB2QueryGrammar extends Grammar
     }
 
     /**
-     * @param $query
      * @return string
      */
     protected function compileRowConstraint($query)
@@ -179,7 +174,6 @@ class DB2QueryGrammar extends Grammar
     /**
      * Compile the "offset" portions of the query.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
      * @param  int  $offset
      * @return string
      */
@@ -195,7 +189,6 @@ class DB2QueryGrammar extends Grammar
     /**
      * Compile an exists statement into SQL.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
      */
     public function compileExists(Builder $query)
@@ -219,8 +212,6 @@ class DB2QueryGrammar extends Grammar
 
     /**
      * Set the format for database stored dates.
-     *
-     * @param $dateFormat
      */
     public function setDateFormat($dateFormat)
     {
@@ -229,8 +220,6 @@ class DB2QueryGrammar extends Grammar
 
     /**
      * Set offset compatibility mode to trigger FETCH FIRST X ROWS and ROW_NUM behavior for older versions of DB2
-     *
-     * @param $bool
      */
     public function setOffsetCompatibilityMode($bool)
     {

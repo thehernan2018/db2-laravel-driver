@@ -1,9 +1,9 @@
 <?php
 
-namespace BWICompanies\DB2Driver;
+namespace djolecodes\DB2Driver;
 
-use BWICompanies\DB2Driver\Schema\DB2Builder;
-use BWICompanies\DB2Driver\Schema\DB2SchemaGrammar;
+use djolecodes\DB2Driver\Schema\DB2Builder;
+use djolecodes\DB2Driver\Schema\DB2SchemaGrammar;
 use Illuminate\Database\Connection;
 use PDO;
 
@@ -24,7 +24,7 @@ class DB2Connection extends Connection
         string $database = '',
         string $tablePrefix = '',
         array $config = []
-        ) {
+    ) {
         parent::__construct($pdo, $database, $tablePrefix, $config);
         $this->currentSchema = $this->defaultSchema = strtoupper($config['schema'] ?? null);
     }
@@ -50,7 +50,7 @@ class DB2Connection extends Connection
      */
     public function setCurrentSchema(string $schema)
     {
-        $this->statement('SET SCHEMA ?', [$schema !== "" ? strtoupper($schema) : "DEFAULT"]);
+        $this->statement('SET SCHEMA ?', [$schema !== '' ? strtoupper($schema) : 'DEFAULT']);
     }
 
     /**

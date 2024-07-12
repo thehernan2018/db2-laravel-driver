@@ -1,6 +1,6 @@
 <?php
 
-namespace BWICompanies\DB2Driver;
+namespace djolecodes\DB2Driver;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;

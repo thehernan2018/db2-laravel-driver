@@ -1,18 +1,17 @@
-[<img src="https://banners.beyondco.de/db2-driver.png?theme=dark&packageManager=composer+require&packageName=bwicompanies%2Fdb2-driver&pattern=bankNote&style=style_1&description=DB2+for+IBM+iSeries+connectivity+for+Laravel&md=1&showWatermark=0&fontSize=100px&images=server&widths=auto"/>]()
+# DB2 for IBM Laravel Driver
+This package allows you to use Laravel's query builder and eloquent with DB2 for IBM iSeries by extending the Illuminate Database component of the Laravel framework. Originally forked from [BWICompanies](https://github.com/BWICompanies/db2-driver).
 
-# DB2 for IBM iSeries Laravel Driver
-This package allows you to use Laravel's query builder and eloquent with DB2 for IBM iSeries by extending the Illuminate Database component of the Laravel framework. Originally forked from [cooperl22/laravel-db2](https://github.com/cooperl22/laravel-db2).
-
+Modification done by me is that we can't use the IBM DB2 driver but only odbc, by specifying the `use_ibm_driver=true` connection string will be created for the IBM DB2 driver instead for the ODBC like previous authors intended. I've done this only because I cant use the [cooperl22/laravel-db2](https://github.com/cooperl22/laravel-db2). And I want to use the regular IBM DB2 driver with laravel 10. Since this package works with Laravel 10 I forked the repo and made small modification in the connection string.
 ## Requirements
-- PHP PDO_ODBC extension
-- IBM i Access ODBC Driver ([Windows & Linux](https://ibmi-oss-docs.readthedocs.io/en/latest/odbc/installation.html))
+- IBM dsdriver installed {IBM DB2 ODBC DRIVER}
+- IBM PDO INSTALLED
 
 ## Installation
 
 Install the package via composer:
 
 ```bash
-composer require bwicompanies/db2-driver
+composer require djolecodes/db2-laravel-driver
 ```
 
 Add a new connection in `database.php`:
@@ -20,12 +19,13 @@ Add a new connection in `database.php`:
 ```php
 'myDB2Connection' => [
     'driver'        => 'db2',
-    'driverName'    => '{IBM i Access ODBC Driver}',
+    'driverName'    => '{IBM DB2 ODBC DRIVER}',
     'host'          => env('DB_HOST'),
     'username'      => env('DB_USERNAME'),
     'password'      => env('DB_PASSWORD'),
     'database'      => env('DB_DATABASE'),
     'prefix'        => '',
+    'use_ibm_driver'=> true,
     'schema'        => env('DB_SCHEMA'),
     'port'          => env('DB_PORT', 50000),
     'date_format'   => 'Y-m-d H:i:s', // or 'Y-m-d H:i:s.u' / 'Y-m-d-H.i.s.u'

@@ -1,6 +1,6 @@
 <?php
 
-namespace BWICompanies\DB2Driver\Schema;
+namespace djolecodes\DB2Driver\Schema;
 
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Blueprint;
@@ -28,7 +28,6 @@ class DB2Blueprint extends Blueprint
     /**
      * Set the sequence number of reply list entries.
      *
-     * @param  int  $replyListSequenceNumber
      * @return void
      */
     public function setReplyListSequenceNumber(int $replyListSequenceNumber)
@@ -39,8 +38,6 @@ class DB2Blueprint extends Blueprint
     /**
      * Get the raw SQL statements for the blueprint.
      *
-     * @param  \Illuminate\Database\Connection  $connection
-     * @param  \Illuminate\Database\Schema\Grammars\Grammar  $grammar
      * @return array
      */
     public function toSql(Connection $connection, Grammar $grammar)
@@ -53,7 +50,6 @@ class DB2Blueprint extends Blueprint
     /**
      * Add the commands that are necessary to DROP and Rename statements on IBMi.
      *
-     * @param  \Illuminate\Database\Connection  $connection
      * @return void
      */
     protected function addReplyListEntryCommands(Connection $connection)
@@ -160,12 +156,12 @@ class DB2Blueprint extends Blueprint
     public function synchro($index, $masterizable = false)
     {
         $this->string('id_sync', 20)
-             ->index($index);
+            ->index($index);
         $this->string('hashcode', 32);
 
-        if (true === $masterizable) {
+        if ($masterizable === true) {
             $this->boolean('data_master')
-                 ->default(true);
+                ->default(true);
         }
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace BWICompanies\DB2Driver\Schema;
+namespace djolecodes\DB2Driver\Schema;
 
 use Closure;
 use Illuminate\Database\Schema\Blueprint;
@@ -52,7 +52,7 @@ class DB2Builder extends Builder
         ]);
 
         $res = $this->connection->getPostProcessor()
-                                ->processColumnListing($results);
+            ->processColumnListing($results);
 
         return array_values(array_map(function ($r) {
             return $r->column_name;
@@ -77,7 +77,7 @@ class DB2Builder extends Builder
     /**
      * Create a new command set with a Closure.
      */
-    protected function createBlueprint($table, Closure $callback = null)
+    protected function createBlueprint($table, ?Closure $callback = null)
     {
         if (isset($this->resolver)) {
             return call_user_func($this->resolver, $table, $callback);

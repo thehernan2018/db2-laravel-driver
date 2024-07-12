@@ -1,6 +1,6 @@
 <?php
 
-namespace BWICompanies\DB2Driver;
+namespace djolecodes\DB2Driver;
 
 use Illuminate\Database\Connectors\Connector;
 use Illuminate\Database\Connectors\ConnectorInterface;
@@ -19,7 +19,7 @@ class DB2Connector extends Connector implements ConnectorInterface
             $schema = $config['schema'];
 
             $connection->prepare('set schema '.$schema)
-                       ->execute();
+                ->execute();
         }
 
         return $connection;
@@ -30,15 +30,27 @@ class DB2Connector extends Connector implements ConnectorInterface
      */
     public function getDsn(array $config): string
     {
-        // Base DSN
-        $dsnParts = [
-            'odbc:DRIVER='.$config['driverName'],
-            'System='.$config['host'],
-            'Port='.$config['port'],
-            'Database='.$config['database'],
-            'UserID='.$config['username'],
-            'Password='.$config['password'],
-        ];
+        if ($config['use_ibm_driver']) {
+            // Use the IBM driver
+            $dsnParts = [
+                'ibm:DRIVER='.$config['driverName'],
+                'HOST='.$config['host'],
+                'PORT='.$config['port'],
+                'DATABASE='.$config['database'],
+                $config['username'],
+                $config['password'],
+            ];
+        } else {
+            // Use the ODBC driver
+            $dsnParts = [
+                'odbc:DRIVER='.$config['driverName'],
+                'System='.$config['host'],
+                'Port='.$config['port'],
+                'Database='.$config['database'],
+                'UserID='.$config['username'],
+                'Password='.$config['password'],
+            ];
+        }
 
         // Include ODBC Keywords if present
         if (array_key_exists('odbc_keywords', $config)) {
