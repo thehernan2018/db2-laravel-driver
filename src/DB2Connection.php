@@ -78,7 +78,7 @@ class DB2Connection extends Connection
      */
     protected function getDefaultQueryGrammar()
     {
-        $defaultGrammar = new DB2QueryGrammar;
+        $defaultGrammar = new DB2QueryGrammar($this);
 
         // If a date format was specified in constructor
         if (array_key_exists('date_format', $this->config)) {
@@ -106,6 +106,16 @@ class DB2Connection extends Connection
      */
     protected function getDefaultPostProcessor(): \Illuminate\Database\Query\Processors\Processor
     {
-        return new DB2Processor;
+        return new DB2Processor($this);
+    }
+
+    /**
+     * Set the table prefix and return grammar.
+     */
+    public function withTablePrefix($grammar)
+    {
+        $grammar->setTablePrefix($this->tablePrefix);
+        return $grammar;
+        
     }
 }
